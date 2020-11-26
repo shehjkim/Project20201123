@@ -1,15 +1,21 @@
 package com.yedam.abstracts;
 
-public class DmbPhone extends Phone {
-	
-	@Override
-	public void ring() {
-		System.out.println("DMB폰 벨.....");
-	}
-	
-	@Override
-	public void turnOff() {
-		
+public abstract class DmbPhone {
+
+	// 필드
+	public String Owner;
+
+	// 생성자
+	public DmbPhone(String owner) {
+		this.Owner = owner;
+
 	}
 
+	public void ring() {
+		System.out.println("4");
+	}
+
+	public void turnOn() {
+		System.out.println("폰 전원을 켭니다");
+	}
 }
