@@ -11,7 +11,7 @@ public interface EmpService {
 	public void insertEmp(EmployeeVO empVO); 	//입력안 반환타입없어서 void
 	public void updateEmp(EmployeeVO empVO);	//수정
 	public void deleteEmp(EmployeeVO empVO);	//삭제
-	
-
+	public List<EmployeeVO> getDeptList(String deptId);//부서별조회
+	//IT,Purchsing,Shipping
 	
 }

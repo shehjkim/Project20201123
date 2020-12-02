@@ -16,3 +16,6 @@ public interface BoardService {
 	public void updateBoard(BoardVO boardVo); // 수정
 
 }
+
+
+

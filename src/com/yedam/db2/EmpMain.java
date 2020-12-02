@@ -14,9 +14,9 @@ public class EmpMain {
 		EmpService service = new EmpServiceImpl();
 		while (true) {
 
-			System.out.println("-------------------------------");
-			System.out.println("1.전체조회 2.한건조회 3.입력 4.수정 5.삭제");
-			System.out.println("-------------------------------");
+			System.out.println("----------------------------------------------------");
+			System.out.println("1.전체조회 2.한건조회 3.입력 4.수정 5.삭제 6.부서별조회 7.종료");
+			System.out.println("----------------------------------------------------");
 			System.out.println("선택 > ");
 			int selectNo = scn.nextInt();
 
@@ -86,8 +86,13 @@ public class EmpMain {
 				int empId = scn.nextInt();
 				EmployeeVO EmpVo = service.getEmp(empId);
 				
-
-			} else if (selectNo == 6) {
+			}else if (selectNo == 6) {
+					System.out.println("조회할 부서번호 입력: ");
+					String depId = scn.nextLine();
+					List<EmployeeVO> EmpVo = service.getDeptList(depId);
+					service.getDeptList(depId);
+			
+			} else if (selectNo == 7) {
 
 				break;
 			}

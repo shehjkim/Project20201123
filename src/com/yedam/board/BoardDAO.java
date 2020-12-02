@@ -1,3 +1,7 @@
+//데이터베이스와 연동할때 해당작업 먼저해줘야함
+//프로젝트 명에서 우클릭 > Properties > 왼쪽에 Java Build Path 선택 > 오른쪽화면에서 Add External JARs 클릭
+//>  C:\oraclexe\app\oracle\product\11.2.0\server\jdbc\lib에 있는 " ojdbc6_g "선택 후 적용
+
 package com.yedam.board;
 
 import java.sql.Connection;

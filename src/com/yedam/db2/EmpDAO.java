@@ -97,19 +97,16 @@ public class EmpDAO {
 	// 한건수정
 	public void updateEmp(EmployeeVO vo) {
 		conn = DAO.getConnection();
-		
-		sql = "update emp1 set employee_id = " + vo.getEmployeeId()
-		 + "email = " + vo.getEmail() 
-		 + "phone_number = "+ vo.getPhoneNumber()
-		 + "salary = " +vo.getSalary()
-		 + "where employee_id=" +vo.getEmployeeId() ;
+
+		sql = "update emp1 set employee_id = " + vo.getEmployeeId() + "email = " + vo.getEmail() + "phone_number = "
+				+ vo.getPhoneNumber() + "salary = " + vo.getSalary() + "where employee_id=" + vo.getEmployeeId();
 
 		conn = DAO.getConnection();
 		try {
 			pstmt = conn.prepareStatement(sql);
 			int r = pstmt.executeUpdate();
-			System.out.println( r + "건4 수정되었습니다");
-			
+			System.out.println(r + "건4 수정되었습니다");
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -118,15 +115,41 @@ public class EmpDAO {
 	// 한건삭제
 	public void deleteEmp(EmployeeVO empVo) {
 		conn = DAO.getConnection();
-		sql="delete from emp1 where employee_id=";
+		sql = "delete from emp1 where employee_id=";
 		conn = DAO.getConnection();
 		try {
 			pstmt = conn.prepareStatement(sql);
 			int r = 1;
-			System.out.println( r + "건 삭제되었습니다");
+			System.out.println(r + "건 삭제되었습니다");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	//부서별 조회
+	public List<EmployeeVO> getDepList(String depId) {
+		conn=DAO.getConnection();
+		sql="SELECT*from emp1 where department_id=?";
+		conn=DAO.getConnection();
+		EmployeeVO vo = new EmployeeVO();
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(9, depId);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				vo.setDepartment_id(rs.getString("department_id"));
+				vo.setEmployeeId(rs.getInt("Employe_id"));
+			}
+				
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return vo;
+			
+				
+		
+	
+	
 	}
 
 	public static Connection getConnection() // connection 타입의 값이 반환

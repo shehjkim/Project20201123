@@ -13,7 +13,7 @@ public class BoardMain {
 		while(true) {
 
 		System.out.println("----------------------------------");
-		System.out.println("1.리스트 2.상세화면 3.등록 4.삭제 5.수정");
+		System.out.println("1.리스트 2.등록 3.삭제 4.수정");
 		System.out.println("-----------------------------------");
 		System.out.println("선택 > ");
 		int selectNo = scn.nextInt();
@@ -24,14 +24,8 @@ public class BoardMain {
 				BoardVO board = (BoardVO) vo;
 				board.showboardInfo();
 			}
-
-		} else if (selectNo == 2) {
-			System.out.println("조회 할 게시번호 입력: ");
-			int boardNo = scn.nextInt();
-			BoardVO boardVo = service.getBoard(boardNo);
-			boardVo.showboardInfo();
 			
-		} else if (selectNo == 3) {
+		} else if (selectNo == 2) {
 			System.out.println("게시번호를 입력하세요. ");
 			int BoardNo = scn.nextInt();scn.nextLine();
 			System.out.println("제목을 입력하세요. ");
@@ -54,7 +48,7 @@ public class BoardMain {
 			
 			
 
-		} else if (selectNo == 4) {
+		} else if (selectNo == 3) {
 			System.out.println("삭제할 게시번호를 입력하세요.");
 			int boardNo=scn.nextInt();
 				
@@ -64,7 +58,7 @@ public class BoardMain {
 			service.deleteBoard(vo);
 
 				
-		} else if (selectNo == 5) {
+		} else if (selectNo == 4) {
 			System.out.println("수정할 게시번호를 입력하세요.");
 			int BoardNo =scn.nextInt();scn.nextLine();
 			System.out.println("수정할 제목을 입력하세요.");

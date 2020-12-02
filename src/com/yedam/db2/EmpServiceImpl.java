@@ -4,11 +4,12 @@ import java.util.List;
 
 public class EmpServiceImpl implements EmpService {
 
+
 	EmpDAO dao = new EmpDAO();
+	
 
 	@Override
-	public List getEmpList() {
-		
+	public List getEmpList() {		
 		return dao.getEmpList();
 	}
 
@@ -34,6 +35,11 @@ public class EmpServiceImpl implements EmpService {
 	public void deleteEmp(EmployeeVO empVo) {
 		dao.deleteEmp(empVo);
 		
+	}
+
+	@Override
+	public List<EmployeeVO> getDeptList(String depId) {
+		return dao.getDepList(depId);
 	}
 	
 
